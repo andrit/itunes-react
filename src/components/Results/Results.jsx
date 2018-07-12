@@ -36,7 +36,9 @@ class Results extends Component{
                                 }</h3>
                         </div>
                         
-                        
+                        {this.state.showModal
+                            ?  <Modal closeModal={this.handleCloseModal} artistpic={album.artistViewUrl} name={album.artistName} genre={album.primaryGenreName} track={album.trackName} album={album.collectionName} />
+                            : <br/>}
                         </React.Fragment>
                     );
                 })}
