@@ -6,13 +6,20 @@ import './App.css';
 
 class App extends Component {
   state={
-    searchresults:null
+    searchresults:[]
+  }
+  setLookupResults = (results) => {
+    this.setState({
+      searchresults: results
+    })
   }
   render() {
     return (
       <div className="App">
-        <Search/>
-        {this.state.searchresults ? <Results/> : 'Results will show up here'}
+        <Search setLookupResults={this.setLookupResults} />
+        {this.state.searchresults.length > 0 
+          ? <Results searchresults={this.state.searchresults} /> 
+          : 'Results will show up here'}
       </div>
     );
   }

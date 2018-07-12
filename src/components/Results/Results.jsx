@@ -6,11 +6,21 @@ import './results.css';
     return()
 }*/
 class Results extends Component{
-    componentDidMount(){
-        //this.props.searchresults
-    }
+    
     render(){
-        return(<p>Results</p>)
+        const {searchresults} = this.props;
+        return(
+            <div id="albums-container">
+                {searchresults.map((album, i) => {
+                    return(
+                        <div className="single-album" key={i}>
+                            <img src={album.artworkUrl100} alt={album.collectionName} />
+                            <h3>{album.collectionName}</h3>
+                        </div>
+                    );
+                })}
+            </div>
+            )
     }
 }
 export default Results;

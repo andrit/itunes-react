@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import axios from 'axios';
 
 import './search.css';
 
@@ -13,22 +14,19 @@ class Search extends Component{
         })
     }
     onClick = () => {
-        const ARTIST_NAME= this.state.artistname;
+        const ARTIST_NAME= this.state.artistname.split(' ').join('+');
         const url = `https://itunes.apple.com/search?term=${ARTIST_NAME}`;
-        fetch(url)
-        .then(response => {
-            if (response.status >= 200 && response.status < 300) {
-            return Promise.resolve(response)
-            } else {
-            return Promise.reject(new Error(response.statusText))
-            }
+        axios.get(url)
+        .then(res => {
+            var nodes = res.data.results;
+            var nodesArray = Object.keys(nodes).map(function(k,v) { [nodes[k], nodes[v]] });
+            var narr = Array.from(nodes);
+            console.log('res: ', nodes)
+            console.log('res narr: ', narr)
+            console.log('res to arr: ', nodesArray);
+            console.log('res: ', typeof(nodesArray))
+            this.props.setLookupResults(narr)
         })
-        .then((res)=>{
-            res.json()
-        })
-        .then(
-            this.props.setlookupresults
-        )
         .catch((e)=>{
             console.log(e)
         })

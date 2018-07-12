@@ -1,0 +1,15 @@
+#albums-container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: 75vh;
+    width: 75vw;
+
+}
+.single-album{
+    width: 120px;
+    height:120px;
+    margin: auto;
+}
+.single-album img{}
+.single-album h3{}
