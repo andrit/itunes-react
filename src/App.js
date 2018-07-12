@@ -16,10 +16,14 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Search setLookupResults={this.setLookupResults} />
-        {this.state.searchresults.length > 0 
-          ? <Results searchresults={this.state.searchresults} /> 
-          : 'Results will show up here'}
+        <div className="search-wrap">
+          <Search setLookupResults={this.setLookupResults} />
+        </div>
+        <div className="results-wrap">
+          {this.state.searchresults.length > 0 
+            ? <Results searchresults={this.state.searchresults} /> 
+            : 'Results will show up here'}
+        </div>
       </div>
     );
   }

@@ -1,15 +1,28 @@
 #albums-container{
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    flex-flow: row wrap;
     height: 75vh;
     width: 75vw;
+    margin: 40px auto;
 
 }
 .single-album{
-    width: 120px;
-    height:120px;
-    margin: auto;
+    width: 180px;
+    height:200px;
+    margin: auto auto 10px;
+    position: relative;
+    border: 2px inset rgba(81, 77, 99, 0.35);
+    background-color: rgba(81, 77, 99, 0.25);
+
 }
-.single-album img{}
-.single-album h3{}
+.single-album img{
+    display: block;
+    margin: 10px auto 0;
+
+}
+.single-album h3{
+    text-align: center;
+    display: block;
+    font-size: 16px;
+
+}

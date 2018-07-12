@@ -21,6 +21,13 @@
 .App-intro {
   font-size: large;
 }
+.search-wrap{
+  display: block;
+}
+.results-wrap{
+  display: block;
+  margin-top: 20px;
+}
 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
